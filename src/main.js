@@ -46,3 +46,11 @@ $().ready(() => {
     let container = document.getElementsByClassName('container')[0];
     ReactDOM.render(<VerticalInfiniteScroll />, container);
 });
+
+// server needs to maintain verified endpoint to receive updates from webhooks
+// get data for
+//
+// CLIENT > PIECE TOGETHER
+// SERVER > GATHER & UPDATE
+//
+// store in memory?
