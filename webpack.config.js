@@ -1,12 +1,12 @@
 const path = require('path');
 
 module.exports = {
-    context: path.join(__dirname, 'src'),
+    context: path.join(__dirname, 'client'),
     entry: [
         './main.js',
     ],
     output: {
-        path: path.join(__dirname, 'www'),
+        path: path.join(__dirname, 'client/assets'),
         filename: 'bundle.js',
     },
     module: {
@@ -24,10 +24,5 @@ module.exports = {
         modules: [
             path.join(__dirname, 'node_modules'),
         ],
-    },
-	node: {
-	  fs: false,
-	  net: false,
-	  tls: false
-	} 
+    }
 };

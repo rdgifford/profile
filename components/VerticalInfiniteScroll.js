@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import _ from 'lodash';
 
@@ -7,11 +6,12 @@ import _ from 'lodash';
 // why this behavior exists or how to turn it off, I don't know. Deleting bundle.js before starting server
 // works though.
 
-class VerticalInfiniteScroll extends React.Component {
-    constructor() {
+export default class VerticalInfiniteScroll extends React.Component {
+    constructor(props) {
         super()
         this.state = {
-            items: _.fill(Array(50), 'HOWDY'),
+            scrollItem: props.scrollItem,
+            items: _.fill(Array(50), props.scrollItem),
         }
     };
     updateItems(diff) {
@@ -31,7 +31,7 @@ class VerticalInfiniteScroll extends React.Component {
                     // scroll remaining as percentage of scroll bar left
                     let scrollRemaining = 1 - (t.scrollTop / (t.scrollHeight - t.clientHeight));
                     if(scrollRemaining <= .25) {
-                        this.updateItems(_.fill(Array(50), "YOYO"))
+                        this.updateItems(_.fill(Array(50), this.state.scrollItem))
                     }
                 }
             }>{
@@ -42,15 +42,5 @@ class VerticalInfiniteScroll extends React.Component {
         );
     }
 }
-$().ready(() => {
-    let container = document.getElementsByClassName('container')[0];
-    ReactDOM.render(<VerticalInfiniteScroll />, container);
-});
 
-// server needs to maintain verified endpoint to receive updates from webhooks
-// get data for
-//
-// CLIENT > PIECE TOGETHER
-// SERVER > GATHER & UPDATE
-//
-// store in memory?
+

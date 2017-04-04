@@ -1,8 +1,7 @@
-My Project
+My Portfolio App
 ---
  
-Welcome.
- 
+A React app with serverside rendering and dynamic content aggregated from my posts, videos, and projects.
  
  
 Usage
